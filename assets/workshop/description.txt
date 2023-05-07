@@ -1,0 +1,19 @@
+[h1]Death Log by Konijima[/h1]
+
+Keep track of every player's demise with the Player Death Logging mod! This handy server-side tool records detailed information about each character's death in a dedicated server file. Analyze the data to discover trends, identify problem areas, and even commemorate fallen heroes. Make every death count, and gain valuable insights for your server community!
+
+The log file can be found in your server in the lua directory.
+[i]Lua/player-death-logging.log[/i]
+
+[quote=author]
+Mod by [b]Konijima[/b]
+Commissioned by [b]Avil[/b]
+[/quote]
+
+[h1]Hire Team Orbit for Custom Mod Commission[/h1]
+
+[url=https://discord.gg/2skchrKrDv][img]https://raw.githubusercontent.com/Glytch3r/TeamOrbitAds/main/square_serve.gif[/img][/url]
+[h1]Click the banners[/h1]
+[url=https://steamcommunity.com/id/glytch3r/myworkshopfiles/?section=collections&appid=108600]
+[img]https://raw.githubusercontent.com/Glytch3r/TeamOrbitAds/main/workshop.png[/img]
+[/url]

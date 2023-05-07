@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Konijima/pzpw-config-schema/master/pzpw-config.schema.json",
+  "mods": {
+    "player-death-logging": {
+      "name": "Death Log",
+      "description": "Keep track of every player's demise with the Player Death Logging mod! This handy server-side tool records detailed information about each character's death in a dedicated server file. Analyze the data to discover trends, identify problem areas, and even commemorate fallen heroes. Make every death count, and gain valuable insights for your server community!"
+    }
+  },
+  "workshop": {
+    "id": 2972685375,
+    "title": "[Server Tool] Death Log",
+    "visibility": "public",
+    "mods": [
+      "player-death-logging"
+    ],
+    "tags": [
+      "Build 41",
+      "Multiplayer",
+      "Misc"
+    ],
+    "author": [
+      "Konijima"
+    ]
+  }
+}

@@ -5,6 +5,10 @@
 
 # Death Log
 
+![Poster](https://github.com/PZPW-Mods/Death-Log/blob/master/assets/mods/player-death-logging/poster.png?raw=true)
+
+<br>
+
 ## Description
 Keep track of every player's demise with the Player Death Logging mod! This handy server-side tool records detailed information about each character's death in a dedicated server file. Analyze the data to discover trends, identify problem areas, and even commemorate fallen heroes. Make every death count, and gain valuable insights for your server community!
 

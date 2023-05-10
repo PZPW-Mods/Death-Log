@@ -2,7 +2,7 @@ import { IPlayerInventory } from "./player-inventory";
 
 export interface IPlayerLog {
     username: string;
-    steamId: number;
+    steamId: string;
     characterName: string;
     gender: "Male" | "Female";
     profession: string;

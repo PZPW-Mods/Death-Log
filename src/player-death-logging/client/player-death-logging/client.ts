@@ -88,10 +88,10 @@ onPlayerDeath.addListener((player) => {
             deathCause = `Player (${(killer as IsoPlayer).getUsername()})`;
         }
     }
-
+    
     const playerLog: IPlayerLog = {
         username: player.getUsername(),
-        steamId: player.getSteamID(),
+        steamId: string.format("%.0f", player.getSteamID()),
         characterName: player.getFullName(),
         gender: player.isFemale() ? 'Female' : 'Male',
         profession: player.getDescriptor().getProfession() ?? "Unknown",

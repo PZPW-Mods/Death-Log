@@ -24,12 +24,15 @@ function printLog(log: IPlayerLog) {
     appendText(``);
     appendText(`Username: ${log.username ?? "Unknown"}`);
     appendText(`SteamID: ${log.steamId ?? "Unknown"}`);
+    appendText(`Steam Name: ${log.steamName ?? "Unknown"}`);
     appendText(`Character Name: ${log.characterName ?? "Unknown"}`);
     appendText(`Character Gender: ${log.gender ?? "Unknown"}`);
     appendText(`Character Profession: ${log.profession ?? "Unknown"}`);
+    appendText(`Infected: ${log.infected ?? false}`);
     appendText(`Death Cause: ${log.deathCause ?? "Unknown"}`);
     appendText(`Zombie Kills: ${log.zombieKills ?? 0}`);
     appendText(`Survived Time: ${log.survivedTime}`);
+    appendText(`Favorite Weapon: ${log.favoriteWeapon}`);
     appendText(`Position: X: ${log.position.x}, Y: ${log.position.y}, Z: ${log.position.z}`);
     appendText(`Game Date Time: ${log.gameDateTime.year}-${log.gameDateTime.month}-${log.gameDateTime.day} ${log.gameDateTime.hour}:${log.gameDateTime.minute}`);
     appendText(`Traits:`);

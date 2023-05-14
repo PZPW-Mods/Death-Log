@@ -1,7 +1,22 @@
-import { InventoryContainer, InventoryItem, IsoPlayer, ItemContainer, Perk, PerkInfo, Perks, _instanceof_, getGameTime, sendClientCommand } from "@asledgehammer/pipewrench";
+import { InventoryContainer, InventoryItem, IsoPlayer, ItemContainer, Perk, PerkInfo, Perks, _instanceof_, getCurrentUserProfileName, getCurrentUserSteamID, getGameTime, getPlayer, sendClientCommand } from "@asledgehammer/pipewrench";
 import { onPlayerDeath } from "@asledgehammer/pipewrench-events";
 import { IPlayerLog } from "../../shared/player-death-logging/player-log";
 import { IPlayerInventory } from "../../shared/player-death-logging/player-inventory";
+
+function getFavoriteWeapon(player: IsoPlayer) {
+    let favouriteWeapon: string = 'Barehand';
+    let swing: any = 0;
+    const playerModData = player.getModData();
+    for (const [key, value] of playerModData as LuaTable<string, any>) {
+        if (key.startsWith('Fav:')) {
+            if (value > swing) {
+                favouriteWeapon = string.sub(key, 5);
+                swing = value;
+            }
+        }
+    }
+    return favouriteWeapon;
+}
 
 function printItem(item: IPlayerInventory, depth: number) {
     const indentation = '  '.repeat(depth);
@@ -19,11 +34,14 @@ function printLog(log: IPlayerLog) {
     print(`PLAYER DEATH LOG`);
     print(`Username: ${log.username ?? "Unknown"}`);
     print(`SteamID: ${log.steamId ?? "Unknown"}`);
+    print(`Steam Name: ${log.steamName ?? "Unknown"}`);
     print(`Character Name: ${log.characterName ?? "Unknown"}`);
     print(`Character Gender: ${log.gender ?? "Unknown"}`);
     print(`Character Profession: ${log.profession ?? "Unknown"}`);
+    print(`Infected: ${log.infected ?? false}`);
     print(`Death Cause: ${log.deathCause ?? "Unknown"}`);
     print(`Zombie Kills: ${log.zombieKills ?? 0}`);
+    print(`Favorite Weapon: ${log.favoriteWeapon}`);
     print(`Survived Time: ${log.survivedTime}`);
     print(`Position: X: ${log.position.x}, Y: ${log.position.y}, Z: ${log.position.z}`);
     print(`Game Date Time: ${log.gameDateTime.year}-${log.gameDateTime.month}-${log.gameDateTime.day} ${log.gameDateTime.hour}:${log.gameDateTime.minute}`);
@@ -91,13 +109,16 @@ onPlayerDeath.addListener((player) => {
     
     const playerLog: IPlayerLog = {
         username: player.getUsername(),
-        steamId: string.format("%.0f", player.getSteamID()),
+        steamId: getCurrentUserSteamID(),
+        steamName: getCurrentUserProfileName(),
         characterName: player.getFullName(),
         gender: player.isFemale() ? 'Female' : 'Male',
         profession: player.getDescriptor().getProfession() ?? "Unknown",
+        infected: player.getBodyDamage().isInfected(),
         deathCause,
         zombieKills: player.getZombieKills() ?? 0,
         survivedTime: player.getTimeSurvived(),
+        favoriteWeapon: getFavoriteWeapon(player),
         position: {
             x: player.getX(),
             y: player.getY(),
